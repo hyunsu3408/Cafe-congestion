@@ -1,4 +1,10 @@
 def compute_congestion_score(review_count):
+    
+    # 리뷰 없을 때
+    if review_count is None:
+        review_count = 0
+    
+    # 리뷰 개수 -> 혼잡도 변환
     if review_count >= 1000:
         return 10
     elif review_count >= 500:

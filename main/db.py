@@ -15,6 +15,7 @@ headers = { "Authorization": f"KakaoAK {KAKAO_API_KEY}" }
 url = "https://dapi.kakao.com/v2/local/search/keyword.json"
 
 
+# DB에 저장
 def save_cafe_db(cafe):
     
     cur,conn = db_connect()
@@ -37,8 +38,10 @@ def save_cafe_db(cafe):
     cur.close()
     conn.close()
     
-def fetch_all_cafe(query="강남 카페"):
+
+def fetch_all_cafe(query):
     all_cafes = []
+    
     for page in range(1,4):
         params={
             "query": query,
@@ -55,7 +58,7 @@ def fetch_all_cafe(query="강남 카페"):
     return all_cafes
     
     
-# 실행
+
 
 def cafe_region_db():
     cafe_region = ["강남 카페","홍대 카페","신촌 카페","이대 카페","이태원 카페","성수 카페","연남동 카페",\
