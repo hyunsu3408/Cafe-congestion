@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ region }} 카페 추천 결과</title>
+</head>
+<body>
+    <h1>{{ region }} 지역 카페 추천</h1>
+    <a href="/">← 돌아가기</a>
+    <table border="1">
+    <thead>
+    <tr>
+        <th>이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+        <th>리뷰 수</th>
+        <th>혼잡도 점수</th>
+        <th>지도 링크</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for cafe in cafes %}
+        <tr>
+        <td>{{ cafe[2] }}</td>  <!-- name -->
+        <td>{{ cafe[3] }}</td>  <!-- address -->
+        <td>{{ cafe[5] }}</td>  <!-- phone -->
+        <td>{{ cafe[10] }}</td> <!-- review_count -->
+        <td>{{ cafe[11] }}</td> <!-- congestion_score -->
+        <td><a href="{{ cafe[9] }}" target="_blank">보기</a></td> <!-- place_url -->
+    </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
