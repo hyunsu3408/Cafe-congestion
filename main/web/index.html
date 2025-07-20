@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카페 혼잡도 추천</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
 </head>
 <body>
-    <h1> 지역 기반 카페 추천</h1>
-    
-    <form action="/results" method = "POST">
-        <label for="region">지역 선택 또는 입력:</label>
-        <select name="region" id="region">
-            <option value="강남"></option>
-            <option value="마포"></option>
-            <option value="용산"></option>
-            <option value="서대문구"></option>
-            <option value="종로"></option>
-            <option value="성동"></option>
-            <option value="광진"></option>
-            <option value="중구"></option>
-        </select>
-        <input type="submit" value="카페 추천 보기">
-    </form>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4"> 지역 기반 카페 추천</h1>
+        
+        <div class="card p-4 shadow">
+            <form action="/results" method = "POST">
+                <div class="form-group">
+
+                    <label for="region">지역 선택 또는 입력:</label>
+                    <select name="region" id="region" required>
+                        <option value="강남">강남</option>
+                        <option value="마포">마포</option>
+                        <option value="용산">용산</option>
+                        <option value="서대문구">서대문구</option>
+                        <option value="종로">종로</option>
+                        <option value="성동">성동</option>
+                        <option value="광진">광진</option>
+                        <option value="중구">중구</option>
+                    </select>
+                </div>
+                <input type="submit" value="카페 추천 보기">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

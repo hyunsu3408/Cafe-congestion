@@ -11,14 +11,18 @@ def index():
 @app.route('/results',methods=['POST'])
 def results():
     region = request.form['region']
-    conn, cur = db_connect()
-    cur.execute("""
-        SELECT * FROM cafe
-        WHERE address Like %s
-        ORDER BY review_count DESC
-        LIMIT 20
-                """,(f'%{region}%'))
-    cafes= cur.fetchall()
+    cur, conn = db_connect()
+    try:
+        cur.execute("""
+            SELECT * FROM cafe
+            WHERE address Like %s
+            ORDER BY review_count DESC
+            LIMIT 20
+                    """,(f'%{region}%',))
+        cafes= cur.fetchall()
+    finally:
+        cur.close()
+        conn.close()
     return render_template('results.html', cafes=cafes,region=region)
 
 if __name__ == '__main__':
