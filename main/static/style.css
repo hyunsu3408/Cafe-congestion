@@ -57,3 +57,9 @@ h1 {
     font-weight: bold;
     color: #343a40;
 }
+
+.cafe_img {
+    max-width: 500;
+    height: 500px;
+    margin-bottom: 30px;
+}
